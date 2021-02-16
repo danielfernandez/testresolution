@@ -2,6 +2,8 @@ name: label-needs-triage
 on: 
   issues:
     types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
 jobs:
   set-label-needs-triage:
     runs-on: ubuntu-latest
