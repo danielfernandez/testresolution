@@ -1,0 +1,19 @@
+name: backlog
+on:
+  issues:
+    types: labeled
+  pull_request:
+    types: labeled
+env:
+  MY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  add-backlog-test00:
+    name: Add task to Test Project backlog
+    if: github.label.name == 'backlog:test00'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: srggrs/assign-one-project-github-action@1.2.0
+        with:
+          project: 'https://github.com/danielfernandez/testresolution/projects/1'
+          column_name: 'To Do'
+
